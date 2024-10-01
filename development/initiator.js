@@ -2,10 +2,6 @@
 // These must be at the very top of the file. Do not edit.
 // icon-color: orange; icon-glyph: comments;
 // 
-// iOS 桌面组件脚本 @「小件件」
-// 开发说明：请从 Widget 类开始编写，注释请勿修改
-// https://x.im3x.cn
-// 
 
 // 添加require，是为了vscode中可以正确引入包，以获得自动补全等功能
 // @ts-ignore
@@ -108,6 +104,6 @@ class Widget extends Base {
 // @组件代码结束
 
 // @ts-ignore
-const { Testing } = require("./「小件件」开发环境")
+const { Testing } = require("./env")
 // @ts-ignore
 await Testing(Widget)
