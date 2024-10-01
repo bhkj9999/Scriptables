@@ -10,6 +10,7 @@ const os = require('os')
 const fs = require('fs')
 const path = require('path')
 
+// @ts-ignore
 var JB = require('javascript-obfuscator');
 
 if (process.argv.length !== 3) {
@@ -27,6 +28,7 @@ let widget_code = widget_file.toString("utf-8")
 widget_code = widget_code.split("await Running(Widget)")[0];
 
 
+// @ts-ignore
 var result = JB.obfuscate(widget_code.toString("utf-8"), {
   "rotateStringArray": true,
   "selfDefending": true,

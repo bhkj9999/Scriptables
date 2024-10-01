@@ -8,8 +8,9 @@
 // 
 
 // 添加require，是为了vscode中可以正确引入包，以获得自动补全等功能
+// @ts-ignore
 if (typeof require === 'undefined') require = importModule
-const { Base } = require("./「小件件」开发环境")
+const { Base } = require("./env")
 
 // @组件代码开始
 class Widget extends Base {
@@ -43,9 +44,11 @@ class Widget extends Base {
    * 渲染小尺寸组件
    */
   async renderSmall (data) {
+    // @ts-ignore
     let w = new ListWidget()
     await this.renderHeader(w, data['logo'], data['title'])
     const t = w.addText(data['content'])
+    // @ts-ignore
     t.font = Font.lightSystemFont(16)
     w.addSpacer()
     w.url = this.actionUrl('open-url', data['url'])
@@ -55,16 +58,20 @@ class Widget extends Base {
    * 渲染中尺寸组件
    */
   async renderMedium (data, num = 3) {
+    // @ts-ignore
     let w = new ListWidget()
     await this.renderHeader(w, data['logo'], data['title'])
     data['data'].slice(0, num).map(d => {
       const cell = w.addStack()
       cell.centerAlignContent()
       const cell_box = cell.addStack()
+      // @ts-ignore
       cell_box.size = new Size(3, 15)
+      // @ts-ignore
       cell_box.backgroundColor = new Color('#ff837a', 0.6)
       cell.addSpacer(10)
       const cell_text = cell.addText(d['title'])
+      // @ts-ignore
       cell_text.font = Font.lightSystemFont(16)
       cell.url = this.actionUrl("open-url", d['url'])
       cell.addSpacer()
@@ -93,11 +100,14 @@ class Widget extends Base {
    * @param {string} url 打开的链接
    */
   async actionOpenUrl (url) {
+    // @ts-ignore
     Safari.openInApp(url, false)
   }
 
 }
 // @组件代码结束
 
+// @ts-ignore
 const { Testing } = require("./「小件件」开发环境")
+// @ts-ignore
 await Testing(Widget)

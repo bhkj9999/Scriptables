@@ -36,6 +36,7 @@ app.get('/ping', (req, res) => {
 
 let FILE_DATE = null
 
+// @ts-ignore
 app.get('/sync', (req, res) => {
   // console.log('[-] 等待同步到手机..')
   const { name } = req.query
@@ -60,6 +61,7 @@ app.get('/sync', (req, res) => {
 })
 
 
+// @ts-ignore
 app.post("/sync", (req, res) => {
   if (req.files.length !== 1) return res.send("no")
   console.log('[+] Scriptalbe App 已连接')
